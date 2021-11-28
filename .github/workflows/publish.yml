@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build Spring Boot
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Git Checkout Code
@@ -15,14 +15,6 @@ jobs:
         id: git_checkout
 
       - name: Build Docker Image
-        id: buildAndPushImage
-        uses: Abhishek-070/Dockerhub-Build-Push@v1.0
-        with:
-          registry_url: 'docker.io'
-          repository_name: 'appsinet/php_development'
-          user_name: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          image_version: '1.0.$GITHUB_RUN_NUMBER'
-          docker_file: '.'
-      - name: Get pre step result output image_pull_url
-        run: echo "The time was ${{ steps.buildAndPushImage.outputs.image_pull_url }}"
+        run: docker build -t appsinet/php_development . \
+              && docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }} \
+              && docker push appsinet/php_development:1.0.$GITHUB_RUN_NUMBER
