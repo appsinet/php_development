@@ -6,6 +6,7 @@ WORKDIR /var/www/html
 RUN apt-get update \
     && apt-get install -y gnupg mariadb-client libicu-dev libpq-dev libzip-dev postgresql-client unzip wget zip zlib1g-dev
 
+ENV PHP_MEMORY_LIMIT=256M
 
 # Install php packages
 RUN docker-php-ext-install intl opcache pdo_mysql pdo_pgsql zip
