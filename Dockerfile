@@ -3,8 +3,9 @@ FROM php:8.0-fpm-bullseye
 WORKDIR /var/www/html
 
 # Install base packages and repositories
+RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main" > /etc/apt/sources.list.d/ansible.list
 RUN apt-get update \
-    && apt-get install -y gnupg mariadb-client libicu-dev libpq-dev libzip-dev postgresql-client unzip wget zip zlib1g-dev
+    && apt-get install -y gnupg mariadb-client libicu-dev libpq-dev libzip-dev postgresql-client unzip wget zip zlib1g-dev ansible ansible-core ansible-lint
 
 RUN echo 'memory_limit=256M' > /usr/local/etc/php/conf.d/memory-limit.ini
 
