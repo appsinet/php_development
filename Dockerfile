@@ -4,6 +4,7 @@ WORKDIR /var/www/html
 
 # Install base packages and repositories
 RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main" > /etc/apt/sources.list.d/ansible.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
 RUN apt-get update \
     && apt-get install -y gnupg mariadb-client libicu-dev libpq-dev libzip-dev postgresql-client unzip wget zip zlib1g-dev ansible ansible-core ansible-lint
 
