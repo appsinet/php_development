@@ -4,7 +4,7 @@ WORKDIR /var/www/html
 
 # Install base packages and repositories
 RUN apt-get update \
-    && apt-get install -y gnupg mariadb-client libicu-dev libpq-dev libzip-dev postgresql-client unzip wget zip zlib1g-dev gnupg2 
+    && apt-get install -y gnupg mariadb-client libicu-dev libpq-dev libzip-dev postgresql-client unzip wget zip zlib1g-dev gnupg2 rsync
 
 # Install ansible    
 RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main" > /etc/apt/sources.list.d/ansible.list
@@ -29,3 +29,6 @@ RUN sh install_composer.sh \
 RUN wget https://github.com/fabpot/local-php-security-checker/releases/download/v1.2.0/local-php-security-checker_1.2.0_linux_amd64 \
     && chmod +x local-php-security-checker_1.2.0_linux_amd64 \
     && mv local-php-security-checker_1.2.0_linux_amd64 /usr/local/bin/local-php-security-checker
+
+# Ansistrano roles for deployment
+RUN ansible-galaxy install ansistrano.deploy ansistrano.rollback
