@@ -4,7 +4,7 @@ WORKDIR /var/www/html
 
 # Install base packages and repositories
 RUN apt-get update \
-    && apt-get install -y gnupg mariadb-client libicu-dev libpq-dev libzip-dev postgresql-client unzip wget zip zlib1g-dev gnupg2 rsync
+    && apt-get install -y git gnupg mariadb-client libicu-dev libpq-dev libzip-dev postgresql-client unzip wget zip zlib1g-dev gnupg2 rsync
 
 # Install ansible    
 RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main" > /etc/apt/sources.list.d/ansible.list
@@ -37,3 +37,5 @@ RUN ansible-galaxy install ansistrano.deploy ansistrano.rollback
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get install -y nodejs
 RUN corepack enable
+# Add sentry-cli
+RUN curl -sL https://sentry.io/get-cli/ | bash
