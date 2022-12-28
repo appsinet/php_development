@@ -1,3 +1,4 @@
+![example workflow](https://github.com/appsinet/php_development/actions/workflows/publish.yml/badge.svg)
 # php_development
 A Docker image based on official PHP, with some extras for development / CI.
 
