@@ -2,25 +2,10 @@ name: Docker Build And Push To Docker Hub
 
 on:
   push:
-    branches:
-      - '*'
     tags:
       - 'v*.*.*'
 
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Git Checkout Code
-        uses: actions/checkout@v3
-        id: git_checkout
-      
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: false
-  
   deployment:
     name: Deployment
     runs-on: ubuntu-latest
@@ -38,8 +23,7 @@ jobs:
           # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule,pattern={{date 'YYYYMMDD'}}
-            type=ref,event=branch
-            type=ref,event=pr
+            type=ref,event=tag
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
