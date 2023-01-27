@@ -14,7 +14,7 @@ RUN apt-get update \
 
 # Install php packages and configure php.ini
 RUN echo 'memory_limit=256M' > /usr/local/etc/php/conf.d/memory-limit.ini
-RUN docker-php-ext-install intl opcache pdo_mysql pdo_pgsql zip
+RUN docker-php-ext-install intl gd opcache pdo_mysql pdo_pgsql zip
 RUN pecl install pcov xdebug \
     && docker-php-ext-enable pcov xdebug
 
