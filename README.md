@@ -5,6 +5,7 @@ A Docker image based on official PHP, with some extras for development / CI.
 ## PHP Modules
 - iconv
 - intl
+- gd
 - json
 - mbstring
 - opcache
@@ -16,7 +17,12 @@ A Docker image based on official PHP, with some extras for development / CI.
 - zip
 
 ## Utilities
+- ansible
+- ansible-lint
+- ansistrano
 - composer
-- postgresql-client
 - local-php-security-checker
 - mariadb-client
+- node 18
+- postgresql-client
+- sentry cli
