@@ -4,7 +4,7 @@ WORKDIR /var/www/html
 
 # Install base packages and repositories
 RUN apt-get update \
-    && apt-get install -y git gnupg mariadb-client libicu-dev libpng-dev libpq-dev libzip-dev postgresql-client unzip wget zip zlib1g-dev gnupg2 rsync
+    && apt-get install -y git gnupg mariadb-client libicu-dev libfreetype6-dev libjpeg-dev libpng-dev libpq-dev libzip-dev postgresql-client unzip wget zip zlib1g-dev gnupg2 rsync
 
 # Install ansible    
 RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main" > /etc/apt/sources.list.d/ansible.list
