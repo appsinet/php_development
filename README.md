@@ -19,6 +19,6 @@ A Docker image based on official PHP, with some extras for development / CI.
 - composer
 - local-php-security-checker
 - mariadb-client
-- node 18
+- node 22
 - postgresql-client
 - sentry cli
