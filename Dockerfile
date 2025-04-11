@@ -35,7 +35,7 @@ RUN wget https://github.com/fabpot/local-php-security-checker/releases/download/
 RUN ansible-galaxy install ansistrano.deploy ansistrano.rollback
 
 # Install Node and yarn
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
 RUN apt-get install -y nodejs
 RUN corepack enable
 # Add sentry-cli
