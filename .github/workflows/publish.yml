@@ -1,4 +1,4 @@
-name: Docker Build And Push To Docker Hub
+name: Docker Build And Push To Registry
 
 on:
   push:
