@@ -17,7 +17,6 @@ A Docker image based on official PHP, with some extras for development / CI.
 - ansible-lint
 - ansistrano
 - composer
-- local-php-security-checker
 - mariadb-client
 - node 22
 - postgresql-client
