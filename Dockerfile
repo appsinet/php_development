@@ -7,10 +7,7 @@ RUN apt-get update \
     && apt-get install -y git gnupg mariadb-client libicu-dev libfreetype6-dev libjpeg-dev libpng-dev libpq-dev libzip-dev postgresql-client unzip wget zip zlib1g-dev gnupg2 rsync
 
 # Install ansible    
-RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu noble main" > /etc/apt/sources.list.d/ansible.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
-RUN apt-get update \
-    && apt-get install -y ansible ansible-core ansible-lint
+RUN apt-get install -y ansible ansible-core ansible-lint
 
 # Install php packages and configure php.ini
 RUN echo 'memory_limit=256M' > /usr/local/etc/php/conf.d/memory-limit.ini
